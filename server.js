@@ -27,6 +27,8 @@ app.use(passport.session());
 app.use('/public',require('./routes/public'));
 app.use('/private',require('./routes/private'));
 app.use('/',require('./routes/root'));
+app.use('/adminprivate',require('./routes/adminprivate'))
+app.use('/admin',require('./routes/adminroot'))
 
 
     app.listen(3000, ()=>{
