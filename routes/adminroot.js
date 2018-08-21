@@ -1,6 +1,7 @@
 const route=require('express').Router();
 const model = require("../models/admindb");
 const passport=require('../config/passport');
+const {user}=require("../models/userdb")
 
 route.get('/adminlogin',(req,res)=>{
     res.render('adminlogin');
@@ -33,6 +34,16 @@ route.post("/adminsignup", (req,res)=>{
         res.redirect("/admin/adminlogin");
     })
 });
+
+route.post('/adminuserdata',(req,res)=>{
+
+    user.findOne({
+        username:req.body.username
+    }).then((user)=>{
+        console.log(user)
+        res.send(user);
+    })
+})
 
 
 
