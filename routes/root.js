@@ -32,6 +32,7 @@ route.post("/signup", (req,res)=>{
     }).then((createuser)=>{
         res.redirect("/login");
     })
+
 });
 
 

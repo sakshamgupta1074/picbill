@@ -3,7 +3,7 @@ const route=require('express').Router();
 route.get('/',(req,res)=>{
    if(req.user)
    {
-       res.render('loggedin')
+       res.render('loggedin',{cashback:req.user.cashback})
    }
    else
    {
