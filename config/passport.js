@@ -28,10 +28,15 @@ passport.use(new LocalStrategy((username,password,done)=>{
         username:username,
     }).then((users)=>{
 
+        c=users.confirmed       //agr error aye login me to isme await ka dekhio
 
         if(!users){
 
             return done(null,false,{message:'no such user'})
+        }
+        if(!c){
+
+            return done(null,false,{message:'email id not confirmed'})
         }
         if(users.password!==password){
 

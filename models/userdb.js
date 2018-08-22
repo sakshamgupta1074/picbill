@@ -9,7 +9,13 @@ const userSchema=new Schema({
     password:String,
     firstname:String,
     lastname:String,
-    cashback:{type:Number, default:0}
+    cashback:{type:Number, default:0},
+    confirmed:{
+        type:Boolean,
+        default:false
+    },
+    secrettoken:String,
+    email:String
 
 });
 
