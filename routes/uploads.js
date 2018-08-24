@@ -47,8 +47,8 @@ const storage = new GridFsStorage({
 });
 const upload = multer({ storage });
 
-route.post('/upload',upload.single('file'),(req,res)=>{
-    res.redirect('/uploads');
+route.post('/private/upload',upload.single('file'),(req,res)=>{
+    res.redirect('/private/uploads');
 })
 
 
@@ -138,7 +138,7 @@ route.delete('/files/:id', (req, res) => {
             return res.status(404).json({ err: err });
         }
 
-        res.redirect('/uploads');
+        res.redirect('/private/uploads');
     });
 });
 

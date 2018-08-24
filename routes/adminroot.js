@@ -63,7 +63,7 @@ route.post('/requests',(req,res)=>{
         username:req.user.username,
         amount:req.body.amount
     });
-    console.log(request)
+
 
     res.send('your cashback will be updated in next 24 hrs')
 })
