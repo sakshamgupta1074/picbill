@@ -4,7 +4,8 @@ const Schema=mongoose.Schema;
 
 const requestSchema=new Schema({
     username:String,
-    amount:Number
+    amount:Number,
+    imgname:{type:String,Default:'photonotuploaded'}
 });
 
 

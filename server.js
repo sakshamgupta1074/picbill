@@ -2,7 +2,7 @@ const express=require('express');
 const app=express();
 const model=require('./models/userdb');
 const session=require('express-session')
-const passport=require('./config/passport')
+const passport=require('./config/pass')
 const keys=require('./config/keys')
 const  mongoose=require('mongoose')
 

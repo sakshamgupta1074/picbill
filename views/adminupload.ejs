@@ -5,23 +5,35 @@
     <title>login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
+    <style>
+        img{
+            width:100%;
+        }
+    </style>
 </head>
 <body>
-you are loggedin
-<form method="post" action="/loggedin">
-
-    <input type="submit" placeholder="logout" value="logout">
-</form>
-<form method="post" action="/private/uploads/requests">
-    enter amount of bill:<input type="text" name="amount">
-    <a href="/private/uploads">upload a picture</a>{{status}}
-    <input type="submit" >
-</form>
-
-
-
-Cashback:{{cashback}}
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 m-auto">
+<% if(files){ %>
+<% files.forEach(function(file) { %>
+<div class="card card-body mb-3">
+    <% if(file.isImage) { %>
+    <img src="/adminprivate/adminuploads/image/<%= file.filename %>" alt="">
+    <% } else { %>
+    <%= file.filename %>
+    <% } %>
+    <form method="POST" action="/private/uploads/files/<%= file._id %>?_method=DELETE">
+        <button class="btn btn-danger btn-block mt-4">Delete</button>
+    </form>
+</div>
+<% }) %>
+<% } else { %>
+<p>No files to show</p>
+<% } %>
+        </div>
+    </div>
+</div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

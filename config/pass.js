@@ -1,37 +1,42 @@
-const passport=require('passport')
-const {admin}=require('../models/admindb')
+const pass=require('passport')
+const {user}=require('../models/userdb')
 const LocalStrategy=require('passport-local').Strategy
 
 
 //serialize user is used to save the data of user in the session and here we save only username in the session
-passport.serializeUser(function(admin,done){
-    done(null,admin.username)
+pass.serializeUser(function(user, done){
+    done(null,user.username)
 })
 
-passport.deserializeUser(function(username,done){
-    admin.findOne({
+pass.deserializeUser(function(username, done){
+    user.findOne({
         username:username
-    }).then((admin)=>{
-        if(!admin){
+    }).then((user)=>{
+        if(!user){
             console.log('no such user');
             return done(new Error("No such user"))
         }
 
-        return done(null,admin)
+        return done(null,user)
     }).catch((err)=>{
         done(err)
     })
 })
 
-passport.use(new LocalStrategy((username,password,done)=>{
-    admin.findOne({
+pass.use(new LocalStrategy((username, password, done)=>{
+    user.findOne({
         username:username,
     }).then((users)=>{
 
-
-        if(!users){
+        c=users.confirmed       //agr error aye login me to isme await ka dekhio
+        console.log(c);
+            if(!users){
 
             return done(null,false,{message:'no such user'})
+        }
+        if(!c){
+
+            return done(null,false,{message:'email id not confirmed'})
         }
         if(users.password!==password){
 
@@ -45,4 +50,4 @@ passport.use(new LocalStrategy((username,password,done)=>{
     })
 }))
 
-exports=module.exports=passport;
+exports=module.exports=pass;

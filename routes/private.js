@@ -19,8 +19,7 @@ route.get('/',(req,res)=>{
 
 });
 
-route.use('/uploads',require('./uploads'))
-
+route.use('/uploads',require('./uploads'));
 
 
 exports=module.exports=route;

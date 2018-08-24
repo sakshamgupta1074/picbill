@@ -1,18 +1,16 @@
 const route=require('express').Router();
-const model = require("../models/admindb");
-const passport=require('../config/passport');
-const {user}=require("../models/userdb")
+const passport1=require('passport');
 const {request}=require('../models/requestsdb')
+const {user}=require('../models/userdb')
+
 
 route.get('/adminlogin',(req,res)=>{
     res.render('adminlogin');
 })
 
-route.get('/adminsignup',(req,res)=>{
-    res.render('adminsignup');
-});
 
-route.post('/adminlogin',passport.authenticate('local',{
+
+route.post('/adminlogin',passport1.authenticate('local',{
     failureRedirect:'/admin/adminlogin',
     successRedirect:'/adminprivate'
 }));
@@ -22,19 +20,7 @@ route.post('/adminloggedin',(req,res)=>{
     res.redirect('/admin/adminlogin')
 });
 
-route.post("/adminsignup", (req,res)=>{
-    console.log(req.body);
 
-// users.push({username: req.body.username, password: req.body.password})
-    model.admin.create({
-        username: req.body.username,
-        password: req.body.password,
-        firstname: req.body.firstname,
-        lastname:req.body.lastname
-    }).then((createuser)=>{
-        res.redirect("/admin/adminlogin");
-    })
-});
 
 route.post('/adminuserdata',(req,res)=>{
 
@@ -82,6 +68,10 @@ route.post('/requestdb',(req,res)=>{
     });
 
 })
+
+
+
+
 
 
 

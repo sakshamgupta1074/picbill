@@ -9,6 +9,7 @@ const grid=require('gridfs-stream');
 const server=require('../server')
 const mongoose=require('mongoose');
 const keys=require('../config/keys')
+const {request}=require('../models/requestsdb')
 
 
 
@@ -26,7 +27,7 @@ mongoose.connection.on('connected', () => {
 })
 
 
-
+let filename;
 const storage = new GridFsStorage({
     url:keys.mongodb.dbURI ,
     file: (req, file) => {
@@ -35,7 +36,8 @@ const storage = new GridFsStorage({
                 if (err) {
                     return reject(err);
                 }
-                const filename = buf.toString('hex') + path.extname(file.originalname);
+
+                filename =req.user.username+ buf.toString('hex') + path.extname(file.originalname);
                 const fileInfo = {
                     filename: filename,
                     bucketName: 'uploads'
@@ -47,39 +49,34 @@ const storage = new GridFsStorage({
 });
 const upload = multer({ storage });
 
-route.post('/private/upload',upload.single('file'),(req,res)=>{
-    res.redirect('/private/uploads');
+route.post('/upload',upload.single('file'),(req,res)=>{  //image should be jpeg or jpg
+
+
+    res.render('loggedin',{status:'image uploaded'});
+})
+route.post('/requests',(req,res)=>{
+
+    request.create({
+        username:req.user.username,
+        amount:req.body.amount,
+        imgname:filename
+    });
+
+
+    res.send('your cashback will be updated in next 24 hrs')
 })
 
 
-
 route.get('/', (req, res) => {
-    gfs.files.find().toArray((err, files) => {
-        // Check if files
-        if (!files || files.length === 0) {
-            res.render('uploadfile.ejs',{files:false})
-        } else {
-            files.map(file => {
-                if (
-                    file.contentType === 'image/jpeg' ||
-                    file.contentType === 'image/png'
-                ) {
-                    file.isImage = true;
-                } else {
-                    file.isImage = false;
-                }
-            });
-            res.render('uploadfile.ejs', { files: files });
-        }
-    });
+
+            res.render('uploadfile');
+
+
 });
 
 // @route POST /upload
 // @desc  Uploads file to DB
-route.post('/upload', upload.single('file'), (req, res) => {
-    // res.json({ file: req.file });
-    res.redirect('/');
-});
+
 route.get('/files', (req, res) => {
     gfs.files.find().toArray((err, files) => {
         // Check if files

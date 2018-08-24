@@ -31,22 +31,7 @@
                 </div>
                 <input type="submit" value="upload" class="btn btn-primary btn-block">
             </form>
-            <% if(files){ %>
-            <% files.forEach(function(file) { %>
-            <div class="card card-body mb-3">
-                <% if(file.isImage) { %>
-                <img src="/private/uploads/image/<%= file.filename %>" alt="">
-                <% } else { %>
-                <%= file.filename %>
-                <% } %>
-                <form method="POST" action="/private/uploads/files/<%= file._id %>?_method=DELETE">
-                    <button class="btn btn-danger btn-block mt-4">Delete</button>
-                </form>
-            </div>
-            <% }) %>
-            <% } else { %>
-            <p>No files to show</p>
-            <% } %>
+
         </div>
     </div>
 </div>

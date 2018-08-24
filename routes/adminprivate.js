@@ -12,6 +12,8 @@ route.get('/',(req,res)=>{
 
 });
 
+route.use('/adminuploads',require('./adminuploads'));
+
 
 
 exports=module.exports=route
