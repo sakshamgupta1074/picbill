@@ -15,7 +15,7 @@ const userSchema=new Schema({
         default:false
     },
     secrettoken:String,
-    email:String
+    email:{type:String,unique:true}
 
 });
 

@@ -12,7 +12,7 @@ app.set('view engine', 'hbs');
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-mongoose.connect(keys.mongodb.dbURI,()=>{
+const conn=mongoose.connect(keys.mongodb.dbURI,()=>{
     console.log('connected to mongodb')
 
 })
@@ -29,8 +29,9 @@ app.use('/private',require('./routes/private'));
 app.use('/',require('./routes/root'));
 app.use('/adminprivate',require('./routes/adminprivate'))
 app.use('/admin',require('./routes/adminroot'))
+app.use('/uploads',require('./routes/uploads'))
 
-
+module.exports=conn;
     app.listen(3000, ()=>{
         console.log("server started at 3000");
     })
