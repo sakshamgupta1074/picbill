@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+<h1>{{vendor.vendorname}}</h1>
+<br/>
+{{vendor.coupon1price}}
+<br/>
+{{vendor.coupon1no}}
+<br/>
+<form method="post" action="/private/buycoupon">
+    <input type="submit" value="{{vendor.coupon1price}}" name="buycoupon">
+</form>
+<br/>
+{{vendor.coupon2price}}
+<br/>
+{{vendor.coupon2no}}
+<br/>
+</body>
+</html>

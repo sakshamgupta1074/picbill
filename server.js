@@ -30,6 +30,10 @@ app.use('/',require('./routes/root'));
 app.use('/adminprivate',require('./routes/adminprivate'))
 app.use('/admin',require('./routes/adminroot'))
 
+app.get('/',(req,res)=>{
+    res.render('index');
+})
+
 
 module.exports=conn;
     app.listen(5000, ()=>{
