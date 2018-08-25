@@ -52,7 +52,7 @@ const upload = multer({ storage });
 route.post('/upload',upload.single('file'),(req,res)=>{  //image should be jpeg or jpg
 
 
-    res.render('loggedin',{status:'image uploaded'});
+    res.render('uploadbil',{status:'image uploaded successfully'});
 })
 route.post('/requests',(req,res)=>{
 

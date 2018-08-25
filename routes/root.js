@@ -13,7 +13,7 @@ route.get('/login',(req,res)=>{
 })
 
 route.get('/signup',(req,res)=>{
-    res.render('signup');
+    res.redirect('login');
 });
 
 route.post('/login',passport.authenticate('local',{
@@ -21,7 +21,7 @@ route.post('/login',passport.authenticate('local',{
     successRedirect:'/private'
 }));
 
-route.post('/loggedin',(req,res)=>{
+route.get('/loggedin',(req,res)=>{
     req.logout();
     res.redirect('/login')
 });
@@ -81,6 +81,9 @@ route.post('/verify',(req,res)=>{
     })
 })
 
+route.get('/vendorspage',(req,res)=>{
+    res.render('vendorspage',{})
+})
 
 
 

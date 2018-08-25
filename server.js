@@ -11,6 +11,7 @@ app.set('view engine', 'hbs');
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use("/static", express.static(__dirname + "/public"));
 
 const conn=mongoose.connect(keys.mongodb.dbURI,()=>{
     console.log('connected to mongodb')
