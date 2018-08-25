@@ -13,7 +13,11 @@ const userSchema=new Schema({
         default:false
     },
     secrettoken:String,
-    email:{type:String,unique:true}
+    email:{type:String,unique:true},
+    noofcoupons:{type:Number,Default:0},
+    couponname1:{type:String ,default:'nocoupon'},
+    couponname2:String
+
 
 });
 

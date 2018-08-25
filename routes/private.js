@@ -1,5 +1,6 @@
 const route=require('express').Router();
 const {coupon}=require('../models/coupondb')
+const {user}=require('../models/userdb')
 
 const authCheck=(req,res,next)=>{
     if(!req.user)       //middleware to check if user is not logged in
@@ -32,20 +33,49 @@ route.post('/vendor',(req,res)=>{
 })
 
 route.post('/buycoupon',(req,res)=>{
+
+
+
     coupon.findOne({
         vendorname:req.body.vendorname
     }).then((vendor)=>{
         console.log(vendor);
+        user.findOne({
+            username:req.user.username
+        }).then((user)=>{
+            console.log(user);
+            if(user.noofcoupons<2){
+                user.noofcoupons=user.noofcoupons+1;
+                if(user.couponname1!='nocoupon')
+                {
+                    user.couponname1=vendor.vendorname
+                }
+                else{
+                    user.couponname2=vendor.vendorname
+                }
 
-        if(req.user.cashback-parseInt(req.body.buycoupon)<0){
-       res.send(`Current amount:${req.user.cashback}<br/>sorry you dont have enough amount in your wallet`)
-   }
-   else {
-       req.user.cashback = req.user.cashback - parseInt(req.body.buycoupon);
-       req.user.save();
-            res.render('buycoupon',{vendor:vendor})
-       res.send('wallet amount left:' + req.user.cashback)
-   }
+                if(req.user.cashback-parseInt(vendor.coupon1price)<0){
+                    res.send(`Current amount:${req.user.cashback}<br/>sorry you dont have enough amount in your wallet`)
+                }
+                else {
+                    console.log(vendor.coupon1price)
+                    req.user.cashback = req.user.cashback - parseInt(vendor.coupon1price);
+
+                    req.user.save();
+                    res.render('userprofile',{user:user})
+
+
+                }
+
+            }
+            else{
+                res.send('sorry you cannot buy more than 2 coupons ')
+            }
+
+
+
+
+        })
 
     })
 
