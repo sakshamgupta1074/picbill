@@ -21,5 +21,9 @@ route.get('/',(req,res)=>{
 
 route.use('/uploads',require('./uploads'));
 
+route.use('/vendor1',(req,res)=>{
+    
+})
+
 
 exports=module.exports=route;

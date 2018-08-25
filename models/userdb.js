@@ -1,6 +1,4 @@
-/**
- * Created by rishabhkhanna on 27/07/18.
- */
+
 const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
 
