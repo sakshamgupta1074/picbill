@@ -58,7 +58,7 @@ route.post('/buycoupon',(req,res)=>{
                     res.send(`Current amount:${req.user.cashback}<br/>sorry you dont have enough amount in your wallet`)
                 }
                 else {
-                    console.log(vendor.coupon1price)
+
                     req.user.cashback = req.user.cashback - parseInt(vendor.coupon1price);
 
                     req.user.save();
@@ -87,5 +87,26 @@ route.get('/uploadbill',(req,res)=>{
 })
 
 
+route.post('/verification',(req,res)=>{
+    coupon.findOne({
+        vendorname:req.body.password
+    }).then((vendor)=>{
+        res.render('verifycoupon',{password:vendor.vendorpassword})
+    })
+
+})
+
+route.post('/code',(req,res)=>{
+    let c=req.body.password;
+    let d=req.body.code;
+    console.log(req.body.code)
+    console.log(req.body.password)
+    if(c===d){
+        res.send('code verified')
+    }
+    else{
+        res.send('code not verified')
+    }
+})
 
 exports=module.exports=route;

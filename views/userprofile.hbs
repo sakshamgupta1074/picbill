@@ -10,6 +10,8 @@ user email id:{{user.email}}<br/><br/>
 wallet money:{{user.cashback}}<br/><br/>
 no of coupons:{{user.noofcoupons}}(max limit=2)<br/><br/>
 coupon name 1:<a href="#">{{user.couponname1}}</a><br/><br/>
-coupon name 2:<a href="#">{{user.couponname2}}</a><br/><br/>
+coupon name 2:{{user.couponname2}}<form method="post" action="/private/verification">
+    <input type="submit" value={{user.couponname2}} name="password"/>
+</form>
 </body>
 </html>
