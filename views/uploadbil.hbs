@@ -4,7 +4,7 @@
     <title>Website Template</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/uploadbill.css">
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
 
@@ -32,7 +32,8 @@
                 <li><a href="#">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="#"> Hi {{username}}</a></li>
+                <li><a href="/loggedin"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
             </ul>
             <form class="navbar-form navbar-left" action="/action_page.php">
                 <div class="input-group">
@@ -47,11 +48,18 @@
         </div>
     </div>
 </nav>
-<form method="post" action="/private/uploads/requests">
-    enter amount of bill:<input type="text" name="amount"><br/>
-    <a href="/private/uploads">upload a picture</a>({{status}})<br/>
-    <input type="submit" >
-</form>
+<div class="login-page container-fluid">
+    <form class="form" method="post" action="/private/uploads/requests">
+        <input type="text" placeholder="Enter Amount of the Bill"  name="amount">
+        <a href="/private/uploads" style="text-align:center;">Upload the Bill</a>({{status}}) <br> <br>
+        <button>Submit</button>
+
+    </form>
+</div>
+</div>
+
+
+
 <footer class="container-fluid foot">
     <div class="row">
         <div class="col-sm-5">
