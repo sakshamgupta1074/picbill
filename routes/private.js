@@ -38,38 +38,54 @@ route.post('/buycoupon',(req,res)=> {
     coupon.findOne({
         vendorname: req.body.vendorname
     }).then((vendor) => {
-        if (req.user.cashback - parseInt(vendor.coupon1price) < 0) {
-            res.send(`Current amount:${req.user.cashback}<br/>sorry you dont have enough amount in your wallet`)
-        }
-        else {
-            user.findOne({
-                username: req.user.username
-            }).then((user) => {
-                console.log(user);
 
-                if (user.noofcoupons < 2) {
-                    user.noofcoupons = user.noofcoupons + 1;
-                    user.cashback = user.cashback - parseInt(vendor.coupon1price);
+        if(parseInt(req.body.coupono)>=1) {
+            if (req.user.cashback - parseInt(vendor.coupon1price) < 0) {
+                res.send(`Current amount:${req.user.cashback}<br/>sorry you dont have enough amount in your wallet`)
+            }
+            else {
+                user.findOne({
+                    username: req.user.username
+                }).then((user) => {
+                    console.log(user);
+
+                    if (user.noofcoupons < 2) {
+                        user.noofcoupons = user.noofcoupons + 1;
+                        user.cashback = user.cashback - req.body.couponprice;
+                        console.log(vendor);
 
 
-                    if (user.couponname1 === 'nocoupon') {
-                        user.couponname1 = vendor.vendorname
+                        if (vendor.coupon1price === parseInt(req.body.couponprice)) {
+                            vendor.coupon1no = vendor.coupon1no - 1;
+                        }
+                        else {
+                            console.log("nooooo")
+                            vendor.coupon2no = vendor.coupon2no - 1;
+                        }
+
+
+                        if (user.couponname1 === 'nocoupon') {
+                            user.couponname1 = vendor.vendorname
+                        }
+                        else {
+                            user.couponname2 = vendor.vendorname
+                        }
+                        user.save();
+                        vendor.save();
+                        res.render('userprofile', {user: user})
                     }
                     else {
-                        user.couponname2 = vendor.vendorname
+                        res.send('sorry you cannot buy more than 2 coupons ')
                     }
-                    user.save();
-                    res.render('userprofile',{user:user})
-
-                }
-                else {
-                    res.send('sorry you cannot buy more than 2 coupons ')
-                }
 
 
-            })
+                })
 
 
+            }
+        }
+        else{
+            res.send('sorry no coupons left');
         }
     })
 })
