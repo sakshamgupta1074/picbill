@@ -75,7 +75,7 @@ route.post('/buycoupon',(req,res)=> {
 })
 
 route.get('/uploadbill',(req,res)=>{
-    res.render('uploadbil',{user:req.user})
+    res.render('uploadbil',{user:req.user,username:req.user.username})
 })
 
 
