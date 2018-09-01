@@ -1,7 +1,7 @@
 const route=require('express').Router();
 const {coupon}=require('../models/coupondb')
 const {user}=require('../models/userdb')
-
+const {sale}=require('../models/coupondb')
 const authCheck=(req,res,next)=>{
     if(!req.user)       //middleware to check if user is not logged in
     {
@@ -134,4 +134,36 @@ route.get('/userprofile',(req,res)=>{
     res.render('userprofile',{user:req.user})
 })
 
+route.get('/sale',(req,res)=>{
+
+   sale.findOne({
+       couponprice:100
+   }).then((sale)=>{
+       console.log(sale)
+       res.render('sale',{sale:sale})
+   })
+
+
+})
+
+route.post('/salecoupon',(req,res)=>{
+    sale.findOne({
+        couponprice:100
+    }).then((sale)=>{
+        if(sale.couponno>=1){
+            sale.couponno=sale.couponno-1;
+            user.findOne({
+                username:req.body.username
+            }).then((user)=>{
+                user.couponno3='salecoupon';
+                user.save();
+            })
+            sale.save();
+            res.render('userprofile',{user:req.user});
+        }
+        else{
+            res.send('you missed the sale')
+        }
+    })
+})
 exports=module.exports=route;
