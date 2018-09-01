@@ -73,7 +73,8 @@
             <div>Price:{{vendor.coupon2price}}</div>
             <div>Coupons left:{{vendor.coupon2no}}</div>
             <form method="post" action="/private/buycoupon">
-                <input type="submit" value="{{vendor.vendorname}}" name="buycoupon">
+                <input type="submit" value="buy" >
+                <input type="hidden" value="{{vendor.vendorname}}" name="vendorname">
             </form>
 
         </div>

@@ -46,14 +46,14 @@ route.post('/buycoupon',(req,res)=>{
             console.log(user);
             if(user.noofcoupons<2){
                 user.noofcoupons=user.noofcoupons+1;
-                if(user.couponname1!='nocoupon')
+                if(user.couponname1==='nocoupon')
                 {
                     user.couponname1=vendor.vendorname
                 }
                 else{
                     user.couponname2=vendor.vendorname
                 }
-
+                    user.save();
                 if(req.user.cashback-parseInt(vendor.coupon1price)<0){
                     res.send(`Current amount:${req.user.cashback}<br/>sorry you dont have enough amount in your wallet`)
                 }
@@ -99,14 +99,30 @@ route.post('/verification',(req,res)=>{
 route.post('/code',(req,res)=>{
     let c=req.body.password;
     let d=req.body.code;
-    console.log(req.body.code)
-    console.log(req.body.password)
+
     if(c===d){
+        coupon.findOne({
+           vendorpassword:req.body.password
+        }).then((coupon)=>{
+            if(coupon.vendorname===req.user.couponname1){
+                couponname1='nocoupon'
+            }
+            else{
+                couponname2='nocoupon'
+            }
+            req.user.noofcoupons=req.user.noofcoupons-1;
+            user.save();
+        })
+
         res.send('code verified')
     }
     else{
         res.send('code not verified')
     }
+})
+
+route.get('/userprofile',(req,res)=>{
+    res.render('userprofile',{user:req.user})
 })
 
 exports=module.exports=route;
