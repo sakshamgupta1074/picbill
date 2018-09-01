@@ -54,17 +54,12 @@
         display: none;
     }
 }
-/*#box{*/
-    /*border: dashed;*/
-    /*text-align: center;*/
-    /*padding-top: 15%;*/
-/*}*/
+
 .login-page {
     width: 360px;
     padding: 8% 0 0;
     margin: auto;
 }
-
 .form {
     position: relative;
     z-index: 1;
@@ -79,7 +74,7 @@
 .form input {
     font-family: "Roboto", sans-serif;
     outline: 0;
-    background: #f2f2f2;
+    background: white;
     width: 100%;
     border: 0;
     margin: 0 0 15px;

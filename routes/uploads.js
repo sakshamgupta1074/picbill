@@ -69,7 +69,7 @@ route.post('/requests',(req,res)=>{
 
 route.get('/', (req, res) => {
 
-            res.render('uploadfile');
+            res.render('uploadfile',{username:req.user.username});
 
 
 });
