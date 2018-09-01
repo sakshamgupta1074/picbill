@@ -1,0 +1,121 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    min-height:200px;
+}
+
+.cwell{
+    font-family: "Roboto", sans-serif;
+    padding: 5%;
+    text-align: center;
+    border-color: rgb(22, 105, 173);
+    margin: 15px;
+    border-style: dashed;
+}
+
+.foot{
+    font-family: "Roboto", sans-serif;
+    padding: 2%;
+    margin: 0px;
+    text-align: center;
+    border-radius: 10px;
+    border-color: rgb(22, 105, 173);
+    border-style: dashed;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: #4d79ff;
+    color: rgb(255, 255, 255);
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+}
+/*#box{*/
+    /*border: dashed;*/
+    /*text-align: center;*/
+    /*padding-top: 15%;*/
+/*}*/
+.login-page {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    border-style: dashed;
+    border-color: rgb(22, 105, 173);
+}
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: rgb(22, 105, 173);
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    /*-webkit-transition: all 0.3 ease;*/
+    /*transition: all 0.3 ease;*/
+    cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+    background: rgb(26, 124, 203);
+}
+.form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+.form .message a {
+    color: rgb(22, 105, 173);
+    text-decoration: none;
+}
+.form .register-form {
+    display: none;
+}
+#header{
+    text-align: center;
+}
