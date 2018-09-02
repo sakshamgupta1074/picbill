@@ -1,0 +1,121 @@
+/* Tiny reset thingy */
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body,html{margin:0;padding:0;}
+
+.wrapper {
+    /* The height needs to be set to a fixed value for the effect to work.
+     * 100vh is the full height of the viewport. */
+    height: 100vh;
+    /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
+    overflow-x: hidden;
+    /* Enable scrolling on the page. */
+    overflow-y: auto;
+    /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+    perspective: 2px;
+}
+
+.section {
+    /* Needed for children to be absolutely positioned relative to the parent. */
+    position: relative;
+    /* The height of the container. Must be set, but it doesn't really matter what the value is. */
+    height: 80vh;
+
+    /* For text formatting. */
+    /*display: flex;  We cna add this in future  */
+
+    color: black;
+    text-shadow: 0 0 5px #000;
+}
+
+.parallax::after {
+    /* Display and position the pseudo-element */
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    /* Move the pseudo-element back away from the camera,
+     * then scale it back up to fill the viewport.
+     * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+    transform: translateZ(-1px) scale(1.5);
+    /* Force the background image to fill the whole element. */
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* Keep the image from overlapping sibling elements. */
+    z-index: -1;
+}
+
+/* The styling for the static div. */
+.static {
+    background: white;
+}
+
+/* Sets the actual background images to adorable kitties. This part is crucial. */
+.bg1::after {
+    /*background: grey;*/
+    /* padding: 5%;
+     margin: 2%;*/
+    background-image: url("/static/images/breakfast.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.row{
+    background-size: cover;
+}
+
+
+.thumbnail{
+    border-color: white;
+    padding: 1px;
+}
+.card{
+    border-color: white;
+    padding: 1px;
+}
+p{
+    font-family: "Roboto", sans-serif;
+}
+
+
+#images{
+    padding-left: 100%;
+    padding-right: 100%;
+}
+.capt{
+    text-align: center;
+}
+.foot{
+    font-family: "Roboto", sans-serif;
+    padding: 2%;
+    margin: 0px;
+    text-align: center;
+    border-radius: 10px;
+    border-color: rgb(22, 105, 173);
+    border-style: dashed;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: #4d79ff;
+    color: rgb(255, 255, 255);
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+
