@@ -16,7 +16,8 @@ const userSchema=new Schema({
     email:{type:String,unique:true},
     noofcoupons:{type:Number,Default:0},
     couponname1:{type:String ,default:'nocoupon'},
-    couponname2:String
+    couponname2:{type:String ,default:'nocoupon'},
+    couponno3:{type:String ,default:'nocoupon'}
 
 
 });

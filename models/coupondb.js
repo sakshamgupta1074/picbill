@@ -12,12 +12,19 @@ const couponSchema=new Schema({
 
 
 });
+const saleSchema=new Schema({
+   couponno:Number,
+    couponprice:Number
+
+
+});
 
 
 
 const coupon=mongoose.model("coupon",couponSchema);
 
-
+const sale=mongoose.model("sale",saleSchema);
 module.exports = {
-    coupon
+    coupon,
+    sale
 }
