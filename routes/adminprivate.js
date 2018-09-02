@@ -1,6 +1,6 @@
 const route=require('express').Router();
 const {coupon}=require('../models/coupondb')
-
+const {sale}=require('../models/coupondb')
 route.get('/',(req,res)=>{
     if(req.user)
     {
@@ -57,5 +57,19 @@ route.post('/modify',(req,res)=>{
         console.log(err);
     })
 })
+route.post('/sale',(req,res)=>{
+    res.render('adminsale')
+})
 
+route.post('/salecreate',(req,res)=>{
+    sale.create({
+        couponno:req.body.noofcoupun,
+        couponprice:req.body.price
+    }).then((sale)=>{
+        console.log(sale);
+        res.send('created');
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
 exports=module.exports=route

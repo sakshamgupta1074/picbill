@@ -65,6 +65,8 @@
             <form method="post" action="/private/buycoupon">
                 <input type="submit" value="buy" >
                 <input type="hidden" value="{{vendor.vendorname}}" name="vendorname">
+                <input type="hidden"  value="{{vendor.coupon1no}}" name="coupono">
+                <input type="hidden"  value="{{vendor.coupon1price}}" name="couponprice">
             </form>
         </div>
         <div class="col-sm-4">
@@ -73,7 +75,10 @@
             <div>Price:{{vendor.coupon2price}}</div>
             <div>Coupons left:{{vendor.coupon2no}}</div>
             <form method="post" action="/private/buycoupon">
-                <input type="submit" value="{{vendor.vendorname}}" name="buycoupon">
+                <input type="submit" value="buy" >
+                <input type="hidden" value="{{vendor.vendorname}}" name="vendorname">
+                <input type="hidden"  value="{{vendor.coupon2no}}" name="coupono">
+                <input type="hidden"  value="{{vendor.coupon2price}}" name="couponprice">
             </form>
 
         </div>

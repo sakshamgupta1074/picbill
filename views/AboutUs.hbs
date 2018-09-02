@@ -1,26 +1,12 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-    <!--<meta charset="UTF-8">-->
-    <!--<title>signup</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--Our vendors-->
-
-
-
-<!--</form>-->
-<!--</body>-->
-<!--</html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>About Us</title>
     <meta charset="utf-8">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/vendorspage.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/AboutUs.css">
 </head>
 <body>
 
@@ -39,7 +25,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="newabout.html">About</a></li>
                     <li><a href="#">How to</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -61,39 +47,48 @@
     </nav>
     <section class="section parallax bg1">
         <div class="container-fluid">
-            <h1 style="color:#efefef">Our Partners</h1>
+            <h1 style="color:#efefef; font-family: Roboto, sans-serif; text-align: center; padding-top: 15%; font-size: 700%; ">About Us</h1>
         </div>
     </section>
 
 
-    <form method="post" action="/private/vendor">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="content">
+                    <h2 style="color: #efefef; font-weight: 700; font-size: 5em; text-shadow: 0 0 5px #000; font-family: Roboto, sans-serif; text-align: center; padding-top: 10%; font-size: 500% ;"><strong>MEET THE TEAM</strong></h2>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid" style="padding-left: 10%; padding-right: 10%;">
         <!-- <section class="section static"> -->
         <div class="row-fluid">
             <div class="col-md-4">
-                <div class="thumbnail">
+                <div>
                     <a href="/w3images/lights.jpg">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/McDonalds_Lugano_Switzerland.jpg" alt="Lights" style="width:100%" class="img-rounded" class="img-responsive" >
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/McDonalds_Lugano_Switzerland.jpg" alt="Lights" style="width:100%; border-radius: 50%" class="img-rounded" class="img-responsive" >
                         <div class="caption">
-                            <p class="capt"> <input type="submit" value="baskin" name="vendorname" ></p>
+                            <p class="capt">Lorem ipsum...</p>
                         </div>
                     </a>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="thumbnail">
+                <div>
                     <a href="/w3images/nature.jpg">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/KFC%2C_Ilorin.JPG" alt="Nature" style="width:100%" class="img-rounded" class="img-responsive">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/KFC%2C_Ilorin.JPG" alt="Nature" style="width:100%; border-radius: 50%" class="img-rounded" class="img-responsive">
                         <div class="caption">
-                            <p class="capt"><input type="submit" value="cocos" name="vendorname" ></p>
+                            <p class="capt">Lorem ipsum...</p>
                         </div>
                     </a>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="thumbnail">
+                <div>
                     <a href="/w3images/fjords.jpg">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Cabo_Verde_Fogo_CokeBooth.JPG" alt="Fjords" style="width:100%"class="img-rounded" class="img-responsive" >
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Cabo_Verde_Fogo_CokeBooth.JPG" alt="Fjords" style="width:100%; border-radius: 50%"class="img-rounded" class="img-responsive" >
                         <div class="caption">
                             <p class="capt">Lorem ipsum...</p>
                         </div>
@@ -101,49 +96,9 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="thumbnail">
-                    <a href="/w3images/lights.jpg">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/McDonalds_Lugano_Switzerland.jpg" alt="Lights" style="width:100%"class="img-rounded" class="img-responsive">
-                        <div class="caption">
-                            <p class="capt">Lorem ipsum...</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/KFC%2C_Ilorin.JPG"  style="width:100%"class="img-rounded" class="img-responsive" >
-                    <div class="caption">
-                        <p class="capt">Lorem ipsum...</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <a href="/w3images/fjords.jpg">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Cabo_Verde_Fogo_CokeBooth.JPG" alt="Fjords" style="width:100%"class="img-rounded" class="img-responsive">
-                        <div class="caption">
-                            <p class="capt">Lorem ipsum...</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <a href="/w3images/lights.jpg">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/McDonalds_Lugano_Switzerland.jpg" alt="Lights" style="width:100%" class="img-rounded">
-                        <div class="caption">
-                            <p class="capt">Lorem ipsum...</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
+                <div>
                     <a href="/w3images/nature.jpg">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/KFC%2C_Ilorin.JPG" alt="Nature" style="width:100%"class="img-rounded" class="img-responsive">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/KFC%2C_Ilorin.JPG" alt="Nature" style="width:100%; border-radius: 50%"class="img-rounded" class="img-responsive">
                         <div class="caption">
                             <p class="capt">Lorem ipsum...</p>
                         </div>
@@ -151,9 +106,9 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="thumbnail">
+                <div>
                     <a href="/w3images/fjords.jpg">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Cabo_Verde_Fogo_CokeBooth.JPG" alt="Fjords" style="width:100%"class="img-rounded" class="img-responsive">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Cabo_Verde_Fogo_CokeBooth.JPG" alt="Fjords" style="width:100%; border-radius: 50%"class="img-rounded" class="img-responsive">
                         <div class="caption">
                             <p class="capt">Lorem ipsum...</p>
                         </div>
@@ -163,7 +118,34 @@
         </div>
         <!-- </section> -->
     </div>
-    </form>
+
+    <!--
+    <style>
+        #myDIV {
+           margin: auto;
+        border: 1px solid black;
+        width: 200px;
+        height: 100px;
+        background-color: coral;
+        color: white;
+        -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+        animation: mymove 5s infinite;
+        }
+
+        @-webkit-keyframes mymove {
+        50% {-webkit-transform: rotateY(180deg);}
+        }
+
+        @keyframes mymove {
+        50% {transform: rotateY(180deg);
+        }
+    </style>
+    <div id="myDIV">
+      <h1>myDIV</h1>
+    </div>
+    -->
+
+
 
     <!-- Now we add the grid  -->
     <footer class="container-fluid foot">

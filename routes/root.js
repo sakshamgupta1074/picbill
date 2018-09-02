@@ -84,7 +84,9 @@ route.post('/verify',(req,res)=>{
 route.get('/vendorspage',(req,res)=>{
     res.render('vendorspage',{})
 })
-
+route.get('/AboutUs',(req,res)=>{
+    res.render('AboutUs',{})
+})
 
 
 exports=module.exports=route;
