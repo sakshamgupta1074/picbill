@@ -1,0 +1,58 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+.navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+  
+.jumbotron
+{
+background-color: rgb(22, 105, 173) ;
+text-align: center;
+
+}
+
+ul.horizontal-slide {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+ul.horizontal-slide li[class*="col"] {
+    display: inline-block;
+    float: none;
+}
+
+ul.horizontal-slide li[class*="col"]:first-child {
+    margin-left: 0;
+}
+.foot{
+  font-family: "Roboto", sans-serif;
+  padding: 2%;
+  margin: 0px;
+  text-align: center;
+  border-radius: 10px;
+  border-color: rgb(22, 105, 173);
+  border-style: dashed;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: #4d79ff;
+    color: rgb(255, 255, 255);
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+
+
+
+
