@@ -88,5 +88,7 @@ route.get('/AboutUs',(req,res)=>{
     res.render('AboutUs',{})
 })
 
-
+route.get('/contact',(req,res)=>{
+    res.render('contactus',{})
+})
 exports=module.exports=route;
