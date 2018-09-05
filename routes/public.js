@@ -17,5 +17,17 @@ route.post('/vendor',(req,res)=>{
     })
 })
 
+route.get('/home',(req,res)=>{
+    if(!req.user)       //middleware to check if user is not logged in
+    {
+        //if user is not logged in
+        res.render('index');
+    }
+    else{
+        res.render('loggedin');
+    }
+
+});
+
 
 exports=module.exports=route;
