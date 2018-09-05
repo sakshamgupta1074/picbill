@@ -26,14 +26,7 @@ route.get('/',(req,res)=>{
 
 route.use('/uploads',require('./uploads'));
 
-route.post('/vendor',(req,res)=>{
 
-    coupon.findOne({
-        vendorname:req.body.vendorname
-    }).then((vendor)=>{
-        res.render('vendor',{vendor:vendor})
-    })
-})
 
 route.post('/buycoupon',(req,res)=> {
 
