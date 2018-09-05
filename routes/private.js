@@ -6,7 +6,7 @@ const authCheck=(req,res,next)=>{
     if(!req.user)       //middleware to check if user is not logged in
     {
         //if user is not logged in
-        res.redirect('/')
+        res.redirect('/login')
     }
     else{
         next();
