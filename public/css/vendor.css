@@ -47,6 +47,33 @@
 
 }
 
+
+.coupon {
+    font-family: "Roboto", sans-serif;
+    border: 5px dotted #bbb;
+    width: 80%; 
+    border-radius: 15px;
+    margin: 0 auto;
+    max-width: 350px;
+    cursor: pointer;
+}
+
+
+.expire {
+    color: red;
+}
+
+
+.cf {
+    padding: 5% 16px;
+    background-color: #f1f1f1;
+}
+
+
+
+
+
+
 p{
   font-family: "Roboto", sans-serif;
 }
