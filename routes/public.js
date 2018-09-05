@@ -24,7 +24,7 @@ route.get('/home',(req,res)=>{
         res.render('index');
     }
     else{
-        res.render('loggedin');
+        res.render('loggedin',{cashback:req.user.cashback,username:req.user.username});
     }
 
 });
