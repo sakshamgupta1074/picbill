@@ -26,7 +26,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
+                <li class="active"><a href="/public/home">Home</a></li>
                 <li><a href="/AboutUs">About</a></li>
                 <li><a href="#">How to</a></li>
                 <li><a href="/contact">Contact</a></li>
@@ -51,8 +51,7 @@
 <div class="login-page container-fluid">
     <h1 id="header">Get Cashback</h1>
     <form class="form" method="post" action="/private/uploads/requests" enctype="multipart/form-data">
-        <label for="image">Photo</label>
-        <input type="file" placeholder="Enter Amount of the Bill"  name="amount">
+        <input type="file" placeholder="Enter Amount of the Bill"  name="amount" accept="image/*">
         <a href="/private/uploads" style="text-align:center;">Upload the Bill</a>({{status}}) <br> <br>
         <button>Submit</button>
 
@@ -63,7 +62,15 @@
 <!-- <form method="post" action="/private/uploads/requests" enctype="multipart/form-data">
 <label for="image">Photo</label>
 <input name="amount" type="file" />
-</form> -->
+</form>
+
+ <div class="col-sm-8 img-upload-section">
+     <input name="image3" type="file" accept="image/*" id="menu_images"/>
+     <img id="menu_image" class="preview_img" />
+     <input type="submit" value="Submit" />
+ </div>
+
+ -->
 
 <footer class="container-fluid foot">
     <div class="row">
