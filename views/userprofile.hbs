@@ -53,7 +53,8 @@
                 <li><a href="/contact">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="/private/userprofile"> Hi {{username}}</a></li>
+                <li><a href="/loggedin"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
             </ul>
             <form class="navbar-form navbar-left" action="/action_page.php">
                 <div class="input-group">
@@ -71,12 +72,11 @@
 
 <div class="container-fluid">
     <div class="jumbotron " style="background-color:#64686d">
-        <span class="glyphicon glyphicon-user"  style="font-size:150px";
-        " aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-user"  style="font-size:150px" aria-hidden="true"></span>
 
         <div class="container-fluid cover">
 
-            <h1>HI!!Name</h1>
+            <h1>HI!!{{user.username}}</h1>
 
             <div class="container">
 
@@ -86,7 +86,8 @@
 
                     </div>
                 </div>
-                <p>Points Earned</p>
+                <p>Points Earned:{{user.cashback}}</p>
+                <p>Buyed Coupons:{{user.noofcoupons}}</p>
             </div>
 
 
@@ -107,9 +108,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="horizontal-slide">
-                        <li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-                        <li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-                        <li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
+                        <li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/>{{user.couponname1}}<form method="post" action="/private/verification">
+                            <input type="submit" value={{user.couponname1}} name="password"/>
+                            </form></li>
+                        <li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/>{{user.couponname2}}<form method="post" action="/private/verification">
+                            <input type="submit" value={{user.couponname2}} name="password"/></form></li>
+
 
                     </ul>
                 </div>
