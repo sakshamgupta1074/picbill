@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>About Us</title>
+    <link rel="shortcut icon" href="/static/images/favicon.ico" />
     <meta charset="utf-8">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,8 +30,9 @@
                     <li><a href="/contact">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"> Hi {{username}}</a></li>
-                    <li><a href="/loggedin"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+                    <li><a href="#">  {{username}}</a></li>
+                    <li><a href="/loggedin"><span></span>{{login}}</a></li>
+                    <li><a href="/loggedin"><span ></span>{{logout}}</a></li>
                 </ul>
                 <form class="navbar-form navbar-left" action="/action_page.php">
                     <div class="input-group">
