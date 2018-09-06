@@ -82,13 +82,33 @@ route.post('/verify',(req,res)=>{
 })
 
 route.get('/vendorspage',(req,res)=>{
-    res.render('vendorspage',{})
+
+    if(req.user) {
+
+        res.render('vendorspage', {cashback: req.user.cashback, username: 'hi '+req.user.username,login:'Logout'})
+    }
+    else{
+        res.render('vendorspage',{logout:'Login'})
+    }
 })
 route.get('/AboutUs',(req,res)=>{
-    res.render('AboutUs',{})
+
+    if(req.user) {
+
+        res.render('AboutUs', {cashback: req.user.cashback, username: 'hi '+req.user.username,login:'Logout'})
+    }
+    else{
+        res.render('AboutUs',{logout:'Login'})
+    }
 })
 
 route.get('/contact',(req,res)=>{
-    res.render('contactus',{})
+    if(req.user) {
+
+        res.render('contactus', {cashback: req.user.cashback, username: 'hi '+req.user.username,login:'Logout'})
+    }
+    else{
+        res.render('contactus',{logout:'Login'})
+    }
 })
 exports=module.exports=route;
